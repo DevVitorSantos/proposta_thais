@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposta Interativa: Dashboards de Análise de Dados</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .flow-step {
+            transition: all 0.3s ease-in-out;
+        }
+        .flow-step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-black text-[#003F5C] uppercase tracking-wide">Transforme Dados em Decisões</h1>
+            <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">Uma proposta visual para escalar sua oferta de análise de dados com dashboards inteligentes e acionáveis.</p>
+        </header>
+
+        <main class="space-y-12">
+
+            <section id="solution" class="bg-white rounded-lg shadow-md p-6 md:p-8">
+                <h2 class="text-3xl font-bold text-center text-[#2F4B7C] mb-2">Nossa Solução em Três Fases</h2>
+                <p class="text-center text-gray-600 mb-8 max-w-2xl mx-auto">Desenvolvemos um processo claro e escalável, desde a criação de um modelo base robusto até o suporte contínuo para geração de insights que impulsionam resultados.</p>
+                <div class="flex flex-col md:flex-row justify-center items-center md:items-stretch space-y-8 md:space-y-0 md:space-x-8">
+                    
+                    <div class="flow-step flex-1 text-center bg-gray-50 rounded-lg p-6 border-l-4 border-[#FFA600]">
+                        <div class="text-4xl font-black text-[#FFA600]">1</div>
+                        <h3 class="text-xl font-bold text-[#003F5C] mt-2">Implementação Inicial</h3>
+                        <p class="text-gray-600 mt-2">Criação de um modelo de dashboard para sua agência.</p>
+                        <p class="text-2xl font-bold text-[#2F4B7C] mt-4">R$ 2.000</p>
+                        <span class="text-sm text-gray-500">(Pagamento Único)</span>
+                    </div>
+                    
+                    <div class="hidden md:flex items-center text-3xl text-gray-300 font-light">→</div>
+
+                    <div class="flow-step flex-1 text-center bg-gray-50 rounded-lg p-6 border-l-4 border-[#F95D6A]">
+                        <div class="text-4xl font-black text-[#F95D6A]">2</div>
+                        <h3 class="text-xl font-bold text-[#003F5C] mt-2">Expansão por Cliente</h3>
+                        <p class="text-gray-600 mt-2">Consultoria e implementação para cada cliente adicional.</p>
+                        <p class="text-2xl font-bold text-[#2F4B7C] mt-4">R$ 400</p>
+                        <span class="text-sm text-gray-500">(Por Cliente)</span>
+                    </div>
+
+                    <div class="hidden md:flex items-center text-3xl text-gray-300 font-light">→</div>
+
+                    <div class="flow-step flex-1 text-center bg-gray-50 rounded-lg p-6 border-l-4 border-[#A05195]">
+                        <div class="text-4xl font-black text-[#A05195]">3</div>
+                        <h3 class="text-xl font-bold text-[#003F5C] mt-2">Geração de Insights Fixos</h3>
+                        <p class="text-gray-600 mt-2">Suporte contínuo para vários os clientes, reuniões e geração de backlogs.</p>
+                        <p class="text-2xl font-bold text-[#2F4B7C] mt-4">R$ 2.750</p>
+                        <span class="text-sm text-gray-500">(Mensal por Cliente)</span>
+                    </div>
+                </div>
+            </section>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+                <section id="scaling" class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-2xl font-bold text-center text-[#2F4B7C] mb-2">Custo de Implementação Escalável</h3>
+                    <p class="text-center text-gray-600 mb-6">O investimento na implementação (Fase 2) cresce de forma previsível conforme sua carteira de clientes aumenta. O modelo base permite uma rápida ativação com um custo marginal decrescente em valor percebido.</p>
+                    <div class="chart-container">
+                        <canvas id="scalingCostChart"></canvas>
+                    </div>
+                </section>
+
+                <section id="revenue" class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-2xl font-bold text-center text-[#2F4B7C] mb-2">Potencial de Receita Mensal Recorrente</h3>
+                    <p class="text-center text-gray-600 mb-6">O serviço de geração contínua de insights (Fase 3) cria uma nova e valiosa fonte de receita recorrente para sua agência, fortalecendo o relacionamento e a entrega de valor para seus clientes.</p>
+                    <div class="chart-container">
+                        <canvas id="recurringRevenueChart"></canvas>
+                    </div>
+                </section>
+            </div>
+            
+            <section id="benefits" class="bg-white rounded-lg shadow-md p-6 md:p-8">
+                <h2 class="text-3xl font-bold text-center text-[#2F4B7C] mb-8">Benefícios Chave da Nossa Solução</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="text-center">
+                        <div class="text-4xl mb-3">🛠️</div>
+                        <h4 class="text-lg font-bold text-[#003F5C]">Auditoria Técnica Completa</h4>
+                        <p class="text-gray-600 mt-1">Garantimos a precisão dos dados com auditorias de tagueamento de eventos e da configuração do GA4.</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl mb-3">🔄</div>
+                        <h4 class="text-lg font-bold text-[#003F5C]">Reutilização e Padronização</h4>
+                        <p class="text-gray-600 mt-1">Um modelo de dashboard central que garante agilidade e consistência na entrega para múltiplos clientes.</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl mb-3">🎨</div>
+                        <h4 class="text-lg font-bold text-[#003F5C]">Personalização Flexível</h4>
+                        <p class="text-gray-600 mt-1">Cada dashboard é adaptado com KPIs e métricas específicas para maximizar o valor para cada cliente.</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl mb-3">🚀</div>
+                        <h4 class="text-lg font-bold text-[#003F5C]">Braço Operacional Estratégico</h4>
+                        <p class="text-gray-600 mt-1">Atuamos na geração de backlogs e insights acionáveis, indo além da simples visualização de dados.</p>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="text-center pt-8">
+                <h2 class="text-3xl font-bold text-[#003F5C]">Pronto para Começar?</h2>
+                <p class="mt-3 text-lg text-gray-600 max-w-2xl mx-auto">Vamos agendar uma conversa para alinhar os próximos passos e iniciar a criação do modelo de dashboard que vai impulsionar sua agência.</p>
+                
+            </footer>
+
+        </main>
+    </div>
+
+    <script>
+        const tooltipTitleCallback = {
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        title: function(tooltipItems) {
+                            const item = tooltipItems[0];
+                            let label = item.chart.data.labels[item.dataIndex];
+                            if (Array.isArray(label)) {
+                                return label.join(' ');
+                            } else {
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        };
+
+        const scalingCostCtx = document.getElementById('scalingCostChart').getContext('2d');
+        const scalingCostChart = new Chart(scalingCostCtx, {
+            type: 'bar',
+            data: {
+                labels: ['1 Cliente', '5 Clientes', '10 Clientes', '20 Clientes'],
+                datasets: [{
+                    label: 'Custo Total de Implementação (R$)',
+                    data: [400, 2000, 4000, 8000],
+                    backgroundColor: ['#FFA600', '#F95D6A', '#D45087', '#A05195'],
+                    borderColor: '#ffffff',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return 'R$ ' + value.toLocaleString('pt-BR');
+                            }
+                        }
+                    }
+                },
+                ...tooltipTitleCallback,
+                plugins: {
+                    ...tooltipTitleCallback.plugins,
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+
+        const recurringRevenueCtx = document.getElementById('recurringRevenueChart').getContext('2d');
+        const recurringRevenueChart = new Chart(recurringRevenueCtx, {
+            type: 'line',
+            data: {
+                labels: ['Mês 1', 'Mês 2', 'Mês 3', 'Mês 4', 'Mês 5', 'Mês 6'],
+                datasets: [
+                {
+                    label: 'Receita Mensal com 5 Clientes',
+                    data: [2500, 2500, 2500, 2500, 2500, 2500],
+                    borderColor: '#F95D6A',
+                    backgroundColor: 'rgba(249, 93, 106, 0.1)',
+                    fill: true,
+                    tension: 0.3
+                },
+                {
+                    label: 'Receita Mensal com 10 Clientes',
+                    data: [5000, 5000, 5000, 5000, 5000, 5000],
+                    borderColor: '#A05195',
+                    backgroundColor: 'rgba(160, 81, 149, 0.1)',
+                    fill: true,
+                    tension: 0.3
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return 'R$ ' + value.toLocaleString('pt-BR');
+                            }
+                        }
+                    }
+                },
+                ...tooltipTitleCallback,
+                 plugins: {
+                    ...tooltipTitleCallback.plugins,
+                    legend: {
+                        position: 'bottom',
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
